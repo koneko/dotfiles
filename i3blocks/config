@@ -1,1 +1,61 @@
-/home/koneko/.config/i3blocks/config
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+color=#A4C2F4
+
+[volume-pulseaudio]
+command=$HOME/.config/i3blocks/volume-pulseaudio
+interval=persist
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+LONG_FORMAT="VOL: ${VOL}% <${NAME}>"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+SUBSCRIBE=1
+
+[iface]
+command=$HOME/.config/i3blocks/iface
+#LABEL=wlan0:
+#IFACE=wlan0
+ADDRESS_FAMILY=inet
+color=#00FF00
+interval=10
+# set this to 1 to display the name of the connected WIFI interface instead of the IP address.
+display_wifi_name=0
+
+[keyboard]
+command=$HOME/.config/i3blocks/keyboardlong
+color=#fc0f0c
+interval=1
+
+[timecal]
+command=if [ $button ]; then gsimplecal; else date '+%d.%m.%Y %H:%M:%S'; fi
+interval=1
+
+#[time]
+#command=date '+%Y-%m-%d %H:%M:%S'
+#interval=1

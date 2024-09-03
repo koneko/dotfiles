@@ -1,1 +1,2 @@
-/home/koneko/.config/i3blocks/keyboardlong
+#!/bin/bash
+echo $(setxkbmap -query | grep layout | sed 's/layout:     //')
