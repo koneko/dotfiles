@@ -15,14 +15,14 @@ command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
 color=#A4C2F4
 
-[volume-pulseaudio]
-command=$HOME/.config/i3blocks/volume-pulseaudio
+[volume-pipewire]
+command=$HOME/.config/i3blocks/volume-pipewire
 interval=persist
 signal=1
 #MIXER=[determined automatically]
 #SCONTROL=[determined automatically]
 ##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
-LONG_FORMAT="VOL: ${VOL}% <${NAME}>"
+LONG_FORMAT="VOL: ${VOL}%"
 #SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
 #AUDIO_HIGH_SYMBOL='  '
 #AUDIO_MED_THRESH=50
@@ -33,7 +33,7 @@ LONG_FORMAT="VOL: ${VOL}% <${NAME}>"
 #DEFAULT_COLOR="#ffffff"
 #MUTED_COLOR="#a0a0a0"
 #USE_ALSA_NAME=0
-#USE_DESCRIPTION=0
+USE_DESCRIPTION=1
 ## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
 SUBSCRIBE=1
 
