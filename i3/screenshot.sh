@@ -12,3 +12,4 @@ fi
 
 $(maim --select "${parentfolder}/${locationfolder}/${name}")
 xclip -in "${parentfolder}/${locationfolder}/${name}" -selection clipboard -t image/png
+satty --filename "${parentfolder}/${locationfolder}/${name}"
