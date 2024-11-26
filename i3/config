@@ -8,8 +8,7 @@
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
 #
-exec --no-startup-id picom
-exec_always feh --bg-scale /home/koneko/Pictures/wallpapers/sitting-at-train-station-px-2560x1440.jpg
+exec_always feh --bg-scale /home/koneko/Pictures/wallpapers/a_cartoon_of_a_woman_with_long_hair_01.png
 focus_follows_mouse yes
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -23,6 +22,7 @@ font pango:DejaVu Sans Mono 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+exec --no-startup-id picom
 # start greenclip
 exec --no-startup-id /usr/bin/greenclip daemon>/dev/null
 
@@ -49,7 +49,7 @@ bindsym Ctrl+F7 exec /home/koneko/.config/i3/screenshot.sh
 bindsym Ctrl+Shift+F7 exec maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 #bindsym Mod1+t exec sleep 1 && xdotool key 'a'
 # autostarts
-#exec --no-startup-id i3-msg 'workspace 2; exec discord'
+exec --no-startup-id i3-msg 'workspace 2; exec vesktop' 
 exec --no-startup-id i3-msg 'workspace 3; exec firefox'
 
 # handle keyboard changing
@@ -84,8 +84,12 @@ for_window [window_type="dialog"]                       floating enable
 for_window [window_type="menu"]                         floating enable
 for_window [class="satty"] floating enable
 for_window [class="satty"] resize set 800 800
+
 # start a terminal
 bindsym Mod4+Return exec kitty
+
+# start thunar
+bindsym Mod4+T exec thunar
 
 # kill focused window
 bindsym Mod4+Shift+q kill
