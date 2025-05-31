@@ -37,15 +37,33 @@ USE_DESCRIPTION=1
 ## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
 SUBSCRIBE=1
 
-[iface]
-command=$HOME/.config/i3blocks/iface
+#[iface]
+#command=$HOME/.config/i3blocks/iface
 #LABEL=wlan0:
 #IFACE=wlan0
-ADDRESS_FAMILY=inet
-color=#00FF00
-interval=10
+#ADDRESS_FAMILY=inet
+#color=#00FF00
+#interval=10
 # set this to 1 to display the name of the connected WIFI interface instead of the IP address.
-display_wifi_name=0
+#display_wifi_name=0
+
+[cpu_usage2]
+command=$HOME/.config/i3blocks/cpu_usage2
+markup=pango
+interval=persist
+color=#AFFFFF
+#min_width=CPU 100.00%
+#REFRESH_TIME=1
+#LABEL=CPU 
+#WARN_PERCENT=50
+#CRIT_PERCENT=80
+#DECIMALS=2
+
+[memory]
+command=$HOME/.config/i3blocks/memory
+label=MEM
+interval=30
+color=#00FF00
 
 [keyboard]
 command=$HOME/.config/i3blocks/keyboardlong
